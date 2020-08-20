@@ -1,9 +1,8 @@
 <html>
   <head>
-    <title>GAME</title>
   </head>
   <body>
-    <canvas id="gamescreen"></canvas>
+    <canvas id="game"></canvas>
     <script>
       var Key = {
         _pressed: {},
@@ -28,40 +27,9 @@
    
       window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
       window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
-      
-      var game = document.getElementById('gamescreen');
-      game.width = window.innerWidth-10;
-      game.height = window.innerHeight-10;
-      var ctx = game.getContext('2d');
-      
+
       var x = 50;
       var y = 50;
-      
-      var speed = 3;
-      
-      function draw(){
-        
-        if(Key.isDown(Key.UP)){
-          y-=speed;
-        }else if(Key.isDown(Key.DOWN)){
-          y+=speed;
-        }
-        if(Key.isDown(Key.LEFT)){
-          x-=speed;
-        }else if(Key.isDown(Key.RIGHT)){
-          x+=speed;
-        }
-        // Clear the screen
-        ctx.clearRect(0,0,game.width,game.height);
-        
-        var circle = new Path2D();
-        //arc(x, y, radius, startAngle, endAngle, anticlockwise)
-        circle.arc(x,y,25,0,2 * Math.PI);
 
-        ctx.fill(circle);
-      }
-
-      setInterval(draw,10);
-    </script>
   </body>
 </html>
